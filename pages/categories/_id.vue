@@ -5,9 +5,9 @@
                 <img src="~assets/img-holder.png" alt="image">
             </div>
             <div class="product__description">
-                <div class="product__text">ID = {{ category.id }}</div>
-                <div class="product__text">TITLE = {{ category.title.ru }}</div>
-                <div class="product__text">DESCRIPTION = {{ category.description.ru }}</div>
+                <div class="product__text">ID = {{ category.slug }}</div>
+                <div class="product__text">TITLE = {{ category.title }}</div>
+                <div class="product__text">DESCRIPTION = {{ category.description }}</div>
                 <base-badge :products="category.products"/>
             </div>
         </div>

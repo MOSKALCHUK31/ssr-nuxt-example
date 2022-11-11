@@ -8,14 +8,14 @@
                 <div class="categories__body">
                     <h1 class="categories__title">CATEGORY page => ...</h1>
                     <ul class="categories__list">
-                        <li class="categories__item" v-for="category in categories" :key="category.id">
-                            <nuxt-link :to="/categories/ + category.id">
+                        <li class="categories__item" v-for="category in categories" :key="category.slug">
+                            <nuxt-link :to="/categories/ + category.slug">
                                 <div class="categories__picture">
                                     <img src="~assets/img-holder.png" alt="picture">
                                 </div>
-                                <div class="categories__text">id = {{ category.id }}</div>
-                                <div class="categories__text">title = {{ category.title.ru }}</div>
-                                <div class="categories__text">description = {{ category.description.ru }}</div>
+                                <div class="categories__text">id = {{ category.slug }}</div>
+                                <div class="categories__text">title = {{ category.title }}</div>
+                                <div class="categories__text">description = {{ category.description }}</div>
                             </nuxt-link>
                         </li>
                     </ul>

@@ -5,9 +5,9 @@
         <hr>
         <br><br>
         <div>
-            <div>ID = {{ product.id }}</div>
-            <div>TITLE = {{ product.title.en }}</div>
-            <div>DESCRIPTION = {{ product.description.en }}</div>
+            <div>ID = {{ product.slug }}</div>
+            <div>TITLE = {{ product.title }}</div>
+            <div>DESCRIPTION = {{ product.description }}</div>
         </div>
     </div>
 </template>
