@@ -1,16 +1,14 @@
 <template>
-    <div>
-        <h1>Category component</h1>
-        <br><br>
-        <hr>
-        <br><br>
-        <div>
-            <div>ID = {{ category.id }}</div>
-            <div>TITLE = {{ category.title.ru }}</div>
-            <div>DESCRIPTION = {{ category.description.ru }}</div>
-            <div>
-                <div>Products</div>
-                <nuxt-link v-for="product in category.products" :to="/products/ + product.id">{{ product.title.en }}</nuxt-link>
+    <div class="layout">
+        <div class="product">
+            <div class="product__image">
+                <img src="~assets/img-holder.png" alt="image">
+            </div>
+            <div class="product__description">
+                <div class="product__text">ID = {{ category.id }}</div>
+                <div class="product__text">TITLE = {{ category.title.ru }}</div>
+                <div class="product__text">DESCRIPTION = {{ category.description.ru }}</div>
+                <base-badge :products="category.products"/>
             </div>
         </div>
     </div>
@@ -18,10 +16,14 @@
 
 <script>
 import { mapState } from 'vuex'
+import BaseBadge from '../../components/product-page/badge'
 
 export default {
     async fetch(context) {
         await context.store.dispatch('categories/SET_CURRENT_CATEGORY_ACTION', context.route.params.id)
+    },
+    components: {
+        BaseBadge
     },
     computed: {
         ...mapState({
@@ -30,3 +32,37 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.product {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 0;
+
+    &__image {
+        width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__description {
+        width: 100%;
+    }
+
+    &__text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 26px;
+        text-align: center;
+        border: 1px solid $global-light-green;
+        border-radius: 10px;
+
+        &:not(:last-of-type) {
+            margin-bottom: 20px;
+        }
+    }
+}
+</style>

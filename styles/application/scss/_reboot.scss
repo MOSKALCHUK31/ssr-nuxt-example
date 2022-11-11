@@ -1,0 +1,23 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+body {
+    font-family: $global-font-family;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: $global-black;
+}
+
+a {
+    color: $global-black;
+    text-decoration: none;
+    cursor: pointer;
+}
